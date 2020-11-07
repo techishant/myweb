@@ -1,0 +1,82 @@
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+    
+    .title{
+      display: grid;
+      place-items: center;
+      height: 150px;
+      font-size: 30px;
+      width: auto;
+      color: yellow;
+      box-shadow: 0 0 20px 9px red;
+      border: 2px dashed red;
+      margin-bottom: 62px;
+    }
+
+    .main{
+      height: 100vh;
+      width: 100%;
+      background: url(/calcimg.jpg);
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      display: grid;
+      place-items: center;
+    }
+
+    .button{
+      font-size: 60px;
+      background-color: white;
+      color: black;
+      border: 4px inline black ;
+      width: 130px;
+      height: 100px;
+    }
+
+    input[type="text"]{
+      font-size: 60px;
+      background-color: #FFD992;
+      border: 4px inline black;
+      width: 100%;
+      height: 100px;
+    }
+
+    #equal{
+      font-size: 60px;
+      background-color: #FF7700;
+      color: black;
+      border:4px inline black;
+      width: 130px;
+      height: 100px;
+    }
+
+    table{
+      height: 200px;
+      width: 200px;
+      border: groove red 8px;
+      background-color: white;
+      position: cover;
+      box-shadow: 0 0 20px 9px red;
+    }
+
+    .content{
+      height: 800px;
+      width: 620px;
+      box-shadow: 0 0 20px 9px red;
+      border-radius: 25px;
+      background: black;
+      overflow: hidden;
+    }
+
+    .table{
+      margin-top: 50px;
+      margin: 0;
+      padding: 0;
+    }
+    .main_calc{
+      display: grid;
+      place-items: center;
+    }
