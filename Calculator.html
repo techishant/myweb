@@ -6,13 +6,46 @@
 
 <link rel="stylesheet" href="CalcStyle.css" type="text/css" media="all" />
 
-  
+  <style type="text/css" media="all">
+    .preloder_container{
+      height: 100vh;
+      width: 100%;
+      background-color: #34495e;
+      display: grid;
+      place-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .circle{
+      
+      background-color: #fff;
+      height: 80px;
+      width: 80px;
+      border: 8px solid #fff;
+      background: transparent;
+      border-top: 8px solid #f1c40f;
+      border-radius: 50%;
+      animation: loading 1s linear infinite;
+    }
+    @keyframes loading{
+      0%{
+        transform: rotate(0deg);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 
 </head>
 
 <!-- create table -->
 
 <body>
+   <div class="preloder_container" id="preloder">
+    <span class="circle"></span>
+  </div>
 <div class="main">
   <div class="content">
 
@@ -108,7 +141,14 @@
     //function that clear the display
     function clr() {
       document.getElementById("result").value = ""
+   var AS = document.getElementById('preloder');
+
+function preloader() {
+AS.style.display = 'none';
+}
+   
     }
+    
   </script>
 </body>
 
