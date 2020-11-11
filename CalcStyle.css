@@ -80,3 +80,33 @@
       display: grid;
       place-items: center;
     }
+    
+    .preloder_container{
+      height: 100vh;
+      width: 100%;
+      background-color: #34495e;
+      display: grid;
+      place-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .circle{
+      
+      background-color: #fff;
+      height: 80px;
+      width: 80px;
+      border: 8px solid #fff;
+      background: transparent;
+      border-top: 8px solid #f1c40f;
+      border-radius: 50%;
+      animation: loading 1s linear infinite;
+    }
+    @keyframes loading{
+      0%{
+        transform: rotate(0deg);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
