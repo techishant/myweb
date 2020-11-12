@@ -110,21 +110,18 @@
         transform: rotate(360deg);
       }
     }
-@media screen and (max-width:500px){
+   @media screen and (max-width:500px){
   .content{
     height: 400px;
     width: 310px;
   }
   .title{
-      display: grid;
-      place-items: center;
       height: 75px;
       font-size: 15px;
       width: auto;
-      color: yellow;
       box-shadow: 0 0 20px 9px red;
       border: 2px dashed red;
-      margin-bottom: 62px;
+      margin-bottom: 31px;
     }
 
     .button{
