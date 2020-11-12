@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
   }
-    
+    input{
+      outline: none;
+    }
     .title{
       display: grid;
       place-items: center;
@@ -34,6 +36,10 @@
       border: 4px inline black ;
       width: 130px;
       height: 100px;
+      outline: none;
+    }
+    .button:active{
+      background: #eee;
     }
 
     input[type="text"]{
