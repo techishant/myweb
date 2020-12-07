@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css" media="all">
+   *{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: Sans-Serif;
+   }
+   .content{
+     background: #34495e;
+     height:100vh;
+     width: 100%;
+     display: grid;
+     place-items:center;
+   }
+   #clock {
+     
+            background:#222529;
+            text-shadow: 0px 0px 8px cyan;
+            color: cyan;
+            font-family: Orbitron;
+            font-size: 35px;
+            letter-spacing: 8px;
+            word-spacing: 80px;
+            width: 300px; 
+            text-align: center; 
+            border: 2px solid cyan;
+            border-radius: 20px;
+            margin-bottom: 80px;
+        } 
+       #mclock{
+         height: 200px;
+         width: 200px;
+         background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUEhjCpEVrM8HMqkCpzO9kJ6zjteq-UqTM7Q&usqp=CAU);
+         background-size: 110%;
+         background-position: center;
+         border-radius: 50%;
+         border: 5px inset gold;
+         position: relative;
+         margin-top: 75px
+       }
+      .hands{
+        height:42%;
+        width: 1.5%;
+        background: black;
+        transform-origin:100%;
+        position: absolute;
+        left: 48%;
+        top: 8.5%;
+        transform-origin: bottom;
+      }
+      #hourHand{
+        
+        height: 28%;
+        width: 3%;
+        top: -50%;
+        left: -50%;
+        top: 22%;
+        left: 47.5%;
+        
+        transform: rotate(30deg);
+      }
+      #minuteHand{
+        height: 32%;
+        width: 2.5%;
+        top: 19%;
+        transform: rotate(30deg);
+      }
+      #secondHand{transform: rotate(0deg); background: red;}
+      .center-cover{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 15px;
+        width: 15px;
+        background: black;
+        z-index: 6;
+        border-radius: 50%;
+      }
+      .bckbtn{
+        font-size: 20px;
+        text-transform: uppercase;
+        display: grid;
+        place-items: center;
+        color: white;
+        height: 50px;
+        width: 150px;
+        background-image: linear-gradient(to bottom, purple,hotpink);
+        text-decoration: none;
+        border: 2px solid white;
+        border-radius: 4px;
+        }
+      .bckbtn:active{
+        background-image: linear-gradient(to top, purple,hotpink);
+      }
+  </style>
+</head>
+<body>
+   
+  <div class="content">
+    <a class="bckbtn" href="https://techishant.github.io/myweb">Back to Home</a>
+  <div id="mclock">
+    <div class="center-cover"></div>
+   <div class="hands" id="hourHand"></div>
+   <div class="hands" id="minuteHand"></div>
+   <div class="hands" id="secondHand"></div>
+  </div>
+  <div id="clock">8:10:45</div> 
+    
+  </div>
+ 
+  <script>
+ // javascript:(function () { var script = document.createElement('script'); script.src="//cdn.jsdelivr.net/npm/eruda"; document.body.appendChild(script); script.onload = function () { eruda.init() } })();
+   setInterval(showtimefnc, 1000);
+      function showtimefnc(){
+      d = new Date();
+      hour = document.getElementById('hourHand');
+      minute = document.getElementById('minuteHand');
+      second = document.getElementById('secondHand');
+      htime = d.getHours();
+      mtime = d.getMinutes();
+      stime = d.getSeconds();
+      
+      amipm = "AM";
+      
+      if(htime>12){
+        htime=htime-12;
+        amipm = "PM";
+      }
+      if(10>htime){
+        htime="0" + htime;
+      }
+      if(10>mtime){
+       mtime="0" + mtime;
+      }
+      if(10>stime){
+        stime="0" + stime;
+      }
+      if (htime==00){
+        htime=12;
+      }
+      let currentime = htime + ":" + mtime + ":" + stime + " " + amipm;
+      document.getElementById('clock').innerHTML = currentime;
+      }
+
+     showtimefnc();
+     setInterval(showanalogtimefnc,1000);
+     function showanalogtimefnc(){
+       t = new Date();
+      hour = document.getElementById('hourHand');
+      minute = document.getElementById('minuteHand');
+      second = document.getElementById('secondHand');
+      htime = t.getHours();
+      mtime = t.getMinutes();
+      stime = t.getSeconds();
+      if(htime>12){
+        htime=htime-12;
+      }
+      hrotation = 30*htime + mtime/2;
+      mrotation = 6*mtime + stime/60;
+      srotation = 6*stime ;
+     // console.log(hrotation + " : " + mrotation + " : " + srotation  );
+      
+      hour.style.transform = `rotate(${hrotation}deg)`;
+      minute.style.transform = `rotate(${mrotation}deg)`;
+      second.style.transform = `rotate(${srotation}deg)`; 
+     }
+    // showanalogtimefnc();
+    </script>
+  </body>
+</html>
