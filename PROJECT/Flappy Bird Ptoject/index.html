@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- <link rel="stylesheet" href="css/index.css">-->
+ <!--<script src="js/index.js"></script>-->
+  <title>Flappy Bird</title>
+  <style type="text/css" media="all">
+   *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#canvas{
+  height: auto;
+  width: ;
+}
+.content-box{
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+}
+#up-btn{
+  height: 70px;
+  width: 70px;
+  font-size: 60px;
+  position: absolute;
+  bottom: 40px;
+  display: grid;
+  place-items: center;
+  right: 90px;
+}
+  </style>
+</head>
+  <body>
+   <div class="content-box">
+     
+  <!--<button id="up-btn" ><strong>&#x2191;</strong></button>-->
+   <canvas id="canvas" height="550" width="250" onclick="moveUp()" ondblclick="dblmoveUp()"></canvas>
+   </div>
+<!--   <script src="js/index.js"></script>-->
+<script type="text/javascript" charset="utf-8">
+ var cvs = document.getElementById("canvas");
+var ctx = cvs.getContext('2d');
+var btn = document.getElementById('up-btn');
+// load images
+
+var bird = new Image();
+var bg = new Image();
+var fg = new Image();
+var pipeNorth = new Image();
+var pipeSouth = new Image();
+
+bird.src = "images/bird.png";
+bg.src = "images/bg.png";
+fg.src = "images/fg.png";
+pipeNorth.src = "images/pipeNorth.png";
+pipeSouth.src = "images/pipeSouth.png";
+
+
+// some variables
+
+var gap = 95;
+var constant;
+
+var bX = 20;
+var bY = 150;
+
+var gravity = .8;
+
+var score = 0;
+
+// audio files
+
+//var fly = new Audio();
+//arr scor = new Audio();
+
+//fly.src = "sounds/fly.mp3";
+//scor.src = "sounds/score.mp3";
+
+// on key down
+
+//btn.addEventListener("on-click",moveUp());
+
+function moveUp(){
+    bY -= 25;
+    //fly.play();
+}
+function dblmoveUp(){
+    bY -= 30;
+    //fly.play();
+}
+
+// pipe coordinates
+
+var pipe = [];
+
+pipe[0] = {
+    x : cvs.width,
+    y : 0
+};
+
+// draw images
+
+function draw(){
+    
+    ctx.drawImage(bg,0,0);
+    
+    
+    for(var i = 0; i < pipe.length; i++){
+        
+        constant = pipeNorth.height+gap;
+        ctx.drawImage(pipeNorth,pipe[i].x,pipe[i].y);
+        ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant);
+             
+        pipe[i].x--;
+        
+        if( pipe[i].x == 125 ){
+            pipe.push({
+                x : cvs.width,
+                y : Math.floor(Math.random()*pipeNorth.height)-pipeNorth.height
+            }); 
+        }
+
+        // detect collision
+        
+        if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >=  cvs.height - fg.height){
+            location.reload(); // reload the page
+        }
+        
+        if(pipe[i].x == 5){
+            score++;
+            //scor.play();
+        }
+        
+        
+    }
+
+    ctx.drawImage(fg,0,cvs.height - fg.height);
+    
+    ctx.drawImage(bird,bX,bY);
+    
+    bY += gravity;
+    
+    ctx.fillStyle = "#000";
+    ctx.font = "20px Verdana";
+    ctx.fillText("Score : "+score,10,cvs.height-20);
+    
+    requestAnimationFrame(draw);
+    
+}
+
+draw();
+
+</script>
+</body>
+</html>
