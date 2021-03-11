@@ -18,7 +18,7 @@ const carouselData=[
 
 introHeader.textContent = carouselData[1].heading;
 introPara.innerText = carouselData[1].para;
-introImage.src=images/" + carouselData[1].imgName + ".jpg"
+introImage.src="images/" + carouselData[1].imgName + ".jpg"
 
 let songIndex= 0;
 
