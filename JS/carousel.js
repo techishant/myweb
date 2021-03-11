@@ -18,7 +18,7 @@ const carouselData=[
 
 introHeader.textContent = carouselData[1].heading;
 introPara.innerText = carouselData[1].para;
-introImage.src="/images/" + carouselData[1].imgName + ".jpg"
+introImage.src="myweb/" + "/images/" + carouselData[1].imgName + ".jpg"
 
 let songIndex= 0;
 
@@ -26,7 +26,7 @@ setInterval(() => {
    songIndex = (songIndex + 1) % carouselData.length;
 
    
-   introImage.src="myweb" + "/images/" + carouselData[songIndex].imgName + ".jpg";
+   introImage.src="myweb/" + "/images/" + carouselData[songIndex].imgName + ".jpg";
    introHeader.textContent = carouselData[songIndex].heading;
    introPara.innerText = carouselData[songIndex].para;
    
