@@ -7,6 +7,242 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Langar&family=Open+Sans+Condensed:wght@300&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body{
+  scroll-behavior: smooth;
+  font-family: Open Sans Condensed;
+}
+
+
+footer{
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    background: #1e1e20;
+    color: beige;
+    overflow-x: hidden;
+  }
+  
+  footer .footer_container h1{
+    text-align: center;
+    font-size: 6rem;
+    padding-top: 3rem;
+  }
+  
+  
+  footer .logo_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 4rem;
+  
+  }
+  
+  footer .logo_container .footer_icons i{
+    height: 7rem;
+    width: 7rem;
+    font-size: 7rem;
+    display: grid;
+    place-items: center;
+    border-radius: 2rem;
+    background: #1e1e20;
+    color: bisque;
+  }
+  
+  footer .bottom_footer_caption{
+  padding-bottom: 1rem;
+  width: fit-content;
+  color: bisque;
+  margin-top: 2rems;
+  font-size: 2rem;
+  display: block;
+  margin: auto;
+  margin-top: 20vh;
+  }
+  
+  footer .bottom_footer_caption a{
+    color: bisque;
+    text-decoration: none;
+  }
+  
+  footer .footer_official_logo_fig{
+    padding-top: 6rem;
+    width: 20rem;
+    height: 20rem;
+    /* margin: 2rem; */
+    display: block;
+    margin: auto;
+  }
+  
+  footer .footer_official_logo_fig img{
+    height: inherit;
+    width: inherit;
+  }
+
+  @media screen and (max-width:494px){
+    html{
+      font-size: 38%;
+    }
+
+    footer .logo_container .footer_icons i{
+      font-size: 5rem;
+      height: 4rem;
+      width: 4rem;
+    }
+}
+
+.container{
+    padding: 5rem;
+    /* padding-top: 8rem; */
+    height: 100vh;
+    width: 100vw;
+    background-size: 100vw;
+    overflow: hidden;
+    transition: all 1s ease;
+    animation: f04backgroundanimation 5s ease-in-out infinite;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(57deg, #a8f8fc, #a8f8ac);
+    /* background-image: linear-gradient(to bottom right, #3A1C71, #D76D77, #FFAF7B ); */
+    /* background-image: linear-gradient(to bottom right, #fd85c1,#f8f867); */
+}
+
+.f04container{
+/* border: 2px solid black; */
+display: flex;
+justify-content: center;
+}
+
+.f04container h1{
+    /* background-image: linear-gradient(to top left, #fd85c1,#f8f867); */
+font-family: langar;
+font-size: 18rem;
+background-image: linear-gradient(58deg, #3A1C71, #D76D77, #FFAF7B ); 
+ background-repeat: no-repeat; 
+-webkit-background-clip: text; 
+ -webkit-text-fill-color: transparent; 
+ transition: all 1s ease-in-out;
+animation: f04animation 3s ease-in-out infinite;
+background-size: 33rem;
+/* color: transparent; */
+/* -webkit-text-stroke-width: 0.001rem;
+-webkit-text-stroke-color:black; */
+}
+@keyframes f04animation{
+    0%{
+        /* background-image: linear-gradient(to top left, #ff2f97,#fdfd22);  */
+        background-size: 33rem;
+
+    }
+    50%{
+        /* background-image: linear-gradient(to bottom right, #ff2f97,#fdfd22);  */
+        background-size: 199rem;
+
+    }
+    100%{
+        /* background-image: linear-gradient(to top left, #ff2f97,#fdfd22);  */
+        background-size: -199rem;
+
+    }
+
+}
+
+@keyframes f04highwayanimation{
+  0%{
+      /* background-image: linear-gradient(to top left, #ff2f97,#fdfd22);  */
+      background-size: 66rem;
+
+  }
+  50%{
+      /* background-image: linear-gradient(to bottom right, #ff2f97,#fdfd22);  */
+      background-size: 199rem;
+
+  }
+  100%{
+      /* background-image: linear-gradient(to top left, #ff2f97,#fdfd22);  */
+      background-size: -199;
+
+  }
+
+}
+
+@keyframes f04backgroundanimation{
+  0%{
+      /* background-image: linear-gradient(to top left, #ff2f97,#fdfd22);  */
+      background-size: 200vw;
+
+  }
+  50%{
+      /* background-image: linear-gradient(to bottom right, #ff2f97,#fdfd22);  */
+      background-size:100vw;
+
+  }
+  100%{
+      /* background-image: linear-gradient(to top left, #ff2f97,#fdfd22);  */
+      background-size: 200vw;
+
+  }
+
+}
+
+.para{
+    font-size: 5rem;
+}
+.para p{
+  justify-content: center;
+  display: flex;
+}
+
+.para a{
+  color: bisque;
+  text-decoration: none;
+  background-image: linear-gradient(48deg, #ffa162, #3A1C71 ); 
+  animation: f04highwayanimation 3s ease-in-out infinite;
+  background-repeat: repeat;
+  transition: all 1s ease;
+  background-size: 66rem;
+  /* background-position: left; */
+  font-size: 5rem;
+  height: 10rem;
+  /* display: block; */
+  /* border: 1rem solid limegreen; */
+  padding: 1rem;
+  display: block;
+  text-align: center;
+  width: 45rem;
+  border-radius: 5rem;
+  /* margin-top: 7rem; */
+  margin: 7rem auto;
+}
+
+.para a:active{
+  color: #1e1e20;
+  transition: none;
+}
+
+@media screen and (max-width:494px){
+  html{
+    font-size: 38%;
+  }
+
+  .f04container{
+    margin-top: 15rem;
+  }
+
+}
+    </style>
     <title>404 | Page Not Found</title>
 </head>
 <body>
