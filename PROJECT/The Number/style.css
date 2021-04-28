@@ -147,7 +147,7 @@
 
 #quote{
     display: block;
-    font-size: auto;
+    font-size: 20%;
     font-family: langar;
     text-align: center;
 }
@@ -159,7 +159,7 @@
     box-shadow: 0 0 128px 0 rgba(77, 77, 77, 0.6),
               0 32px 64px -48px rgba(77, 77, 77, 0.6);
     font-family: langar;
-    font-size: 6vh;
+    font-size: 20%;
     display: grid;
     place-items: center;
     background: #eee;
