@@ -113,6 +113,7 @@
     width: 70vw;
     border-radius: 25px;
     padding: 25px;
+    padding-bottom: 7vh;
     background: #fff;
     box-shadow: 0 0 128px 0 rgba(77, 77, 77, 0.6),
               0 32px 64px -48px rgba(77, 77, 77, 0.6);
