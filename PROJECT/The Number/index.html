@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/fabebe5e1d.js" crossorigin="anonymous"></script>   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHISHANT | The Number?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <!-- help -->
+        <div class="helpPage">
+            <div class="helpPageWrapper"></div>
+        </div>
+        <!-- helpClose -->
+        <div id="losePage">
+            <div class="wrapper">
+                <h1 id="quote">
+                </h1>
+<h1>
+    Your score was: <div style="display: inline-block;" id="scoreDis">00</div>
+</h1>
+<i class="fab fas fa-info-circle"></i>
+
+                <button id="reloadBtn" onclick="location.reload()">restart</button>
+            </div>
+            </div>
+            <div class="scoreDiv">
+
+                <div id="scoreBox">
+                    00
+                </div>
+                <span id="hover">+1</span>
+            </div>
+        <div class="cont">
+            <div id="numContain">
+                <p id="contain"></p>
+            </div>
+            <div class="inpCont">
+                <input id="dataInp" type="number">
+                <button id="dataInpBtn" onclick="check()"><i class="fas fa-check"></i></button>
+            </div>
+                <button id="btn" onclick="dis()">NEXT</button>
+            </div>
+        </div>
+
+    <script>
+        let dNum = null;
+        let xVal = 50;
+        let yVal = 50;
+        let fSize = 4 + 'vh';
+        var setInter ;
+        let score = 0;
+        let scoreBox = document.getElementById("scoreBox");
+        const hover = document.getElementById("hover");
+        const scoreDis= document.getElementById("scoreDis");
+        const quote = document.getElementById("quote");
+        const losePage = document.getElementById("losePage");
+        const dataInp = document.getElementById("dataInp");
+        const dataInpBtn = document.getElementById("dataInpBtn");
+        const btn = document.getElementById("btn");
+        const ctn = document.getElementById("contain");
+        
+
+        function getRandomInt(max){
+            return Math.floor(Math.random() * max);
+        }
+
+        function getRandomPlace(min,max){
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * max);
+        }
+
+        function getRandomSize(min,max){
+             min = Math.ceil(min);
+             max = Math.floor(max);
+             return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+
+        // hover.style=`display:none;`;
+
+
+        function dis(){
+            dNum=getRandomInt(50);
+            xVal=getRandomPlace(25, 75);
+            yVal=getRandomPlace(25, 75);
+            fSize=getRandomSize(3, 11);
+            setInter = setInterval(blinker, 90);
+            
+
+
+            btn.setAttribute("disabled", "");
+            btn.style=`cursor:not-allowed;`;
+
+            xVal=xVal+'%';
+            yVal=yVal+'%';
+            ctn.style=`position:absolute; left:${xVal}; top:${yVal}; font-size:${fSize}vh; display:block;`;
+            
+            function blinker(){
+            ctn.style=`display:none`;
+
+            clearInterval(setInter);
+            }
+            if(dNum<10){
+
+                dNum="0"+dNum;
+            }
+
+            ctn.innerHTML=dNum;
+        }
+
+
+        function check(){
+            if (dataInp.value == 0){
+            losePage.style=`display:grid;`;
+            quote.innerHTML=` !!!!!-KILLED-!!!!! <br/> Better Luck Next Time. <br/> You tried to cheat!! <br/> -by The Number?`;
+        }
+            btn.style=`cursor:pointer;`;
+            btn.removeAttribute("disabled");
+            if (dataInp.value == dNum){
+                hover.style=`display:block;`;
+                function hovFnc(){
+                    setInterval(() => {
+                        hover.style=`display:none;`;
+                    }, 800);
+                }
+                
+                score = score + 1;
+                
+                hovFnc();
+                scoreBox.innerHTML=`${score}`;
+                
+                scoreDis.innerHTML=score;
+                console.log(` correct one ${score}`);
+                dataInp.value= null;
+                
+            }else{
+                console.log(`you lose that was ${dNum}`);
+                losePage.style=`display:grid;`;
+                quote.innerHTML=` !!!!!-KILLED-!!!!! <br/> You Lose <br/> Better Luck Next Time. <br/> Well You were Killed by " ${dNum} " <br/> -by The Number?`;
+            }
+            
+        }
+
+        
+        // setInterval(() => {
+        //    scoreBox.innerHTML=`${score}`;
+        // }, 500);
+    </script>
+</body>
+</html>
