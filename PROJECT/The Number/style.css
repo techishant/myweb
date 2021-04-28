@@ -147,7 +147,7 @@
 
 #quote{
     display: block;
-    font-size: 4vh;
+    font-size: auto;
     font-family: langar;
     text-align: center;
 }
